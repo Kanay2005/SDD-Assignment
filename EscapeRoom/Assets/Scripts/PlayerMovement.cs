@@ -10,17 +10,12 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
+    public Camera cam;
 
     Vector3 velocity;
     bool isGrounded;
+    public 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -38,5 +33,17 @@ public class PlayerMovement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if(Input.GetMouseButtonDown(0)){
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, 10)){
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if(interactable != null){
+                    hit.transform.gameObject.GetComponent<ItemPickup>().Interact();
+                }
+            }
+        }
     }
 }
