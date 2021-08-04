@@ -5,14 +5,12 @@ using UnityEngine;
 public class ItemPickup : Interactable
 {
     public Item item;
-    public override void Interact()
+    public void Interact()
     {
-        base.Interact();
-
-        PickUp();
+        
     }
 
-    void PickUp(){
+    public void PickUp(){
         Debug.Log("Picking up " + item.name);
         FindObjectOfType<Inventory>().Add(item);
         Destroy(gameObject);

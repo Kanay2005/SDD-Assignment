@@ -12,6 +12,5 @@ public class Interactable : MonoBehaviour
             interactionTransform = transform;
         }    
     }
-    public virtual void Interact(){
-    }
+
 }

@@ -45,5 +45,17 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetMouseButtonDown(1)){
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, 10)){
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if(interactable != null){
+                    hit.transform.gameObject.GetComponent<ItemPickup>().PickUp();
+                }
+            }
+        }
     }
 }
