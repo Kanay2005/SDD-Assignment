@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public Item empty;
     public List<Item> items = new List<Item>();
     public int equippedSlot = 0;
+    
     private void Start() {
         for(int i = 0; i <= 8; i++){
             items.Add(empty);
@@ -31,6 +32,19 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void refreshHotbar(){
+        for(int i = 0; i <= items.Count-1; i++){
+            Image image = hotbar.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Image>();
+            if(items[i] != empty){
+                image.sprite = items[i].icon;
+                image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+            }
+            else{
+                image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            }
+        }
+    }
+
     public void Add(Item item){
         for(int i = 0; i <= 8; i++){
             if(items[i] == empty){
@@ -38,22 +52,15 @@ public class Inventory : MonoBehaviour
                 break;
             }
         }
-        for(int i = 0; i <= items.Count-1; i++){
-            Image image = hotbar.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Image>();
-            if(items[i] != empty){
-                image.sprite = items[i].icon;
-                image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
-            }
-        }
+        refreshHotbar();
     }
-    public void Interact(Item item){
-        
-        items.Remove(item);
-        for(int i = 0; i <= items.Count-1; i++){
-            Image image = hotbar.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Image>();
-            image.sprite = items[i].icon;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+    public bool Interact(Item item){
+        if(item.name == "Stapler" && items[equippedSlot].name == "Key"){
+            items[equippedSlot] = empty;
+            refreshHotbar();
+            return true;
         }
+        return false;
     }
 
 }

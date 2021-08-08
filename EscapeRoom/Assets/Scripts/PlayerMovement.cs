@@ -41,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
             if(Physics.Raycast(ray, out hit, 10)){
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if(interactable != null){
-                    hit.transform.gameObject.GetComponent<ItemPickup>().Interact();
+                    try{
+                        hit.transform.gameObject.GetComponent<ItemInteract>().Interact();
+                    }
+                    catch{}
                 }
             }
         }
@@ -53,7 +56,10 @@ public class PlayerMovement : MonoBehaviour
             if(Physics.Raycast(ray, out hit, 10)){
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if(interactable != null){
-                    hit.transform.gameObject.GetComponent<ItemPickup>().PickUp();
+                    try{
+                        hit.transform.gameObject.GetComponent<ItemPickup>().PickUp();
+                    }
+                    catch{}
                 }
             }
         }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a10c520b4fccc54792fbbef897817bd, type: 3}
   m_Name: Stapler
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Stapler
   icon: {fileID: 0}
