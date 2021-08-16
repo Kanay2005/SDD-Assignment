@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a10c520b4fccc54792fbbef897817bd, type: 3}
-  m_Name: Stapler
+  m_Name: Door
   m_EditorClassIdentifier: 
-  name: Stapler
-  icon: {fileID: 21300000, guid: 5a028fca8a220cf4aa30d4fff411613f, type: 3}
+  name: Door
+  icon: {fileID: 0}

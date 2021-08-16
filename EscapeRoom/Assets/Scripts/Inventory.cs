@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public Item empty;
     public List<Item> items = new List<Item>();
     public int equippedSlot = 0;
+    public GameObject openDoor;
     
     private void Start() {
         for(int i = 0; i <= 8; i++){
@@ -54,10 +55,29 @@ public class Inventory : MonoBehaviour
         }
         refreshHotbar();
     }
-    public bool Interact(Item item){
-        if(item.name == "Stapler" && items[equippedSlot].name == "Key"){
+    public bool Interact(Item item, Transform transform){
+        if(item.name == "PressurePlate1" && items[equippedSlot].name == "Stapler"){
             items[equippedSlot] = empty;
             refreshHotbar();
+            transform.GetChild(0).gameObject.SetActive(true);
+            return false;
+        }
+        if(item.name == "PressurePlate2" && items[equippedSlot].name == "Mug"){
+            items[equippedSlot] = empty;
+            refreshHotbar();
+            transform.GetChild(0).gameObject.SetActive(true);
+            return false;
+        }
+        if(item.name == "PressurePlate1" && items[equippedSlot].name == "BowTie"){
+            items[equippedSlot] = empty;
+            refreshHotbar();
+            transform.GetChild(0).gameObject.SetActive(true);
+            return false;
+        }
+        if(item.name == "Door" && items[equippedSlot].name == "Key"){
+            items[equippedSlot] = empty;
+            refreshHotbar();
+            openDoor.SetActive(true);
             return true;
         }
         return false;
