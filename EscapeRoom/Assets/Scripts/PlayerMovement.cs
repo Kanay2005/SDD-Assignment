@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //variable declaration for the script
     public CharacterController controller;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     public 
 
+    //gets the input for the movement and moves the playes accordingly
+    //also looks for the press of the left and the right mouse button and calls the function for the iteraction of items
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);

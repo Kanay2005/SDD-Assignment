@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class NumberPad2 : MonoBehaviour
 {
+    //the different subroutines are used to input different numbers by the press of different buttons on the number pad
     public GameObject MainDoor;
     public TextMeshProUGUI outputText;
     string text;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    //variable declaration for the required variables
     public GameObject hotbar;
     public Item empty;
     public List<Item> items = new List<Item>();
@@ -14,6 +15,7 @@ public class Inventory : MonoBehaviour
     public GameObject NumberPad2;
     public GameObject TextInput;
     
+    //sets up the hotbar to be empty
     private void Start() {
         for(int i = 0; i <= 8; i++){
             items.Add(empty);
@@ -24,6 +26,7 @@ public class Inventory : MonoBehaviour
         hotbar.transform.GetChild(0).GetComponent<Image>().color = new Color (0f, 1f, 1f, 1f);
     }
     
+    //updates the hotbar with new changes every frame
     private void Update() {
         for(int x = 0; x <= 8; x++){
             if(Input.GetKeyDown((KeyCode)(49+x))){
@@ -36,6 +39,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //subroutine to refresh the images of the hotbar
     private void refreshHotbar(){
         for(int i = 0; i <= items.Count-1; i++){
             Image image = hotbar.transform.GetChild(i).GetChild(0).gameObject.GetComponent<Image>();
@@ -49,6 +53,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //subroutine to add new items to the hotbar
     public void Add(Item item){
         for(int i = 0; i <= 8; i++){
             if(items[i] == empty){
@@ -58,6 +63,8 @@ public class Inventory : MonoBehaviour
         }
         refreshHotbar();
     }
+
+    //the different interactions for the items that can be clicked on
     public bool Interact(Item item, Transform transform){
         if(item.name == "PressurePlate1" && items[equippedSlot].name == "Stapler"){
             items[equippedSlot] = empty;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SetSensitivity : MonoBehaviour
 {
+    //sets the sensitivity of the players when loading into the game
     public Slider senseSlider;
     private void Start() {
         if(PlayerPrefs.GetFloat("senseSlider") != 0){

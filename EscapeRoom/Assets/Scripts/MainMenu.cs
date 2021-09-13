@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //the subroutines that are called when the buttons on the main menu are pressed
     public void PlayGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

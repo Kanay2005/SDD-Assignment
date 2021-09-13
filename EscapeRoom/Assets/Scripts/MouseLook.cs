@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    //declaring the variable
     public float mouseSensitivity = 100;
     public Transform playerBody;
     float xRotation = 0;
-    // Start is called before the first frame update
+
+    //removes the cursor from the screen and sets up the mouse sensitivty from the player settings
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -17,7 +19,7 @@ public class MouseLook : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    //uses mouse movement to move the camera of the player
     void Update()
     {
         if(PlayerPrefs.GetFloat("mouseSensitivity") != 0){

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : Interactable
 {
+    //script that allows for an item to be picked up
     public Item item;
 
     public void PickUp(){

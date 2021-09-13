@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SetVolume : MonoBehaviour
 {
+    //sets the music volume of the game when loading into the game
     public Slider volumeSlider;
     public AudioMixer mixer;
     private void Start() {

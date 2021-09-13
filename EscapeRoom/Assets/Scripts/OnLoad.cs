@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 public class OnLoad : MonoBehaviour
 {
+    //sets up the player settings on the load of the game
     public AudioMixer mixer;
     void Update(){
         if(PlayerPrefs.GetFloat("volumeSlider") != 0){

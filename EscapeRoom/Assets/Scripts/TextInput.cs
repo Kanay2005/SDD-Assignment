@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TextInput : MonoBehaviour
 {
+    //used to check the input of the text in the text input menu
     public InputField textInput;
     public GameObject Door;
     public void ButtonPress(){
