@@ -14,6 +14,17 @@ public class Inventory : MonoBehaviour
     public GameObject NumberPad1;
     public GameObject NumberPad2;
     public GameObject TextInput;
+    public GameObject HiddenDoor;
+    public GameObject ButtonOne;
+    public GameObject ButtonTwo;
+    public GameObject ButtonThree;
+    public GameObject ButtonFour;
+    public GameObject ButtonFive;
+    public GameObject ButtonSix;
+    public GameObject ButtonSeven;
+    public GameObject ButtonEight;
+    public GameObject ButtonNine;
+    bool buttonDone;
     
     //sets up the hotbar to be empty
     private void Start() {
@@ -36,6 +47,10 @@ public class Inventory : MonoBehaviour
                 }
                 hotbar.transform.GetChild(x).GetComponent<Image>().color = new Color (0f, 1f, 1f, 1f);
             }
+        }
+        if(buttonDone == false && ButtonOne.GetComponent<Renderer>().material.color == Color.black && ButtonTwo.GetComponent<Renderer>().material.color == Color.black && ButtonThree.GetComponent<Renderer>().material.color == Color.black && ButtonFour.GetComponent<Renderer>().material.color == Color.white && ButtonFive.GetComponent<Renderer>().material.color == Color.white && ButtonSix.GetComponent<Renderer>().material.color == Color.black && ButtonSeven.GetComponent<Renderer>().material.color == Color.white && ButtonEight.GetComponent<Renderer>().material.color == Color.white && ButtonNine.GetComponent<Renderer>().material.color == Color.black){
+            Destroy(ButtonTwo);
+            buttonDone = true;
         }
     }
 
@@ -105,6 +120,82 @@ public class Inventory : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
         }
+        if(item.name == "HiddenButton"){
+            Destroy(HiddenDoor);
+        }
+        if(item.name == "ButtonOne"){
+            if(ButtonOne.GetComponent<Renderer>().material.color == Color.white){
+                ButtonOne.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonOne.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonTwo"){
+            if(ButtonTwo.GetComponent<Renderer>().material.color == Color.white){
+                ButtonTwo.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonTwo.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonThree"){
+            if(ButtonThree.GetComponent<Renderer>().material.color == Color.white){
+                ButtonThree.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonThree.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonFour"){
+            if(ButtonFour.GetComponent<Renderer>().material.color == Color.white){
+                ButtonFour.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonFour.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonFive"){
+            if(ButtonFive.GetComponent<Renderer>().material.color == Color.white){
+                ButtonFive.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonFive.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonSix"){
+            if(ButtonSix.GetComponent<Renderer>().material.color == Color.white){
+                ButtonSix.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonSix.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonSeven"){
+            if(ButtonSeven.GetComponent<Renderer>().material.color == Color.white){
+                ButtonSeven.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonSeven.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonEight"){
+            if(ButtonEight.GetComponent<Renderer>().material.color == Color.white){
+                ButtonEight.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonEight.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+        if(item.name == "ButtonNine"){
+            if(ButtonNine.GetComponent<Renderer>().material.color == Color.white){
+                ButtonNine.GetComponent<Renderer>().material.color = Color.black;
+            }
+            else{
+                ButtonNine.GetComponent<Renderer>().material.color = Color.white;
+            }
+        }
+
         return false;
     }
 
