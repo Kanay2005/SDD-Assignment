@@ -7,9 +7,12 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPause = false;
     public GameObject pauseMenu;
+    public GameObject NumberPad1;
+    public GameObject NumberPad2;
+    public GameObject TextInput;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape) && !NumberPad1.activeSelf && !NumberPad2.activeSelf && !TextInput.activeSelf){
             if(GameIsPause){
                 Resume();
             }

@@ -10,6 +10,9 @@ public class Inventory : MonoBehaviour
     public List<Item> items = new List<Item>();
     public int equippedSlot = 0;
     public GameObject openDoor;
+    public GameObject NumberPad1;
+    public GameObject NumberPad2;
+    public GameObject TextInput;
     
     private void Start() {
         for(int i = 0; i <= 8; i++){
@@ -68,7 +71,7 @@ public class Inventory : MonoBehaviour
             transform.GetChild(0).gameObject.SetActive(true);
             return false;
         }
-        if(item.name == "PressurePlate1" && items[equippedSlot].name == "BowTie"){
+        if(item.name == "PressurePlate3" && items[equippedSlot].name == "BowTie"){
             items[equippedSlot] = empty;
             refreshHotbar();
             transform.GetChild(0).gameObject.SetActive(true);
@@ -79,6 +82,21 @@ public class Inventory : MonoBehaviour
             refreshHotbar();
             openDoor.SetActive(true);
             return true;
+        }
+        if(item.name == "NumberPad1"){
+            NumberPad1.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+        }
+        if(item.name == "NumberPad2"){
+            NumberPad2.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+        }
+        if(item.name == "TextInput"){
+            TextInput.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
         }
         return false;
     }
