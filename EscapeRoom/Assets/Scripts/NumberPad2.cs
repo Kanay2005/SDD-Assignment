@@ -9,6 +9,11 @@ public class NumberPad2 : MonoBehaviour
     public GameObject MainDoor;
     public TextMeshProUGUI outputText;
     string text;
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            CloseButton();
+        }
+    }
     private void Start() {
         text = outputText.text;
     }

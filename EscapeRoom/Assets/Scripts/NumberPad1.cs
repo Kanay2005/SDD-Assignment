@@ -8,6 +8,12 @@ public class NumberPad1 : MonoBehaviour
     //the different subroutines are used to input different numbers by the press of different buttons on the number pad
     public TextMeshProUGUI outputText;
     string text;
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            CloseButton();
+        }
+    }
+    
     private void Start() {
         text = outputText.text;
     }

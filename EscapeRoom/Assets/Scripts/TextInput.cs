@@ -7,6 +7,11 @@ public class TextInput : MonoBehaviour
     //used to check the input of the text in the text input menu
     public InputField textInput;
     public GameObject Door;
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            CloseButton();
+        }
+    }
     public void ButtonPress(){
         if(textInput.text.ToLower() == "marvel"){
             textInput.text = "CORRECT!";

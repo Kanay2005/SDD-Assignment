@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject NumberPad1;
     public GameObject NumberPad2;
     public GameObject TextInput;
+    public GameObject optionsMenu;
+    public GameObject mainPauseMenu;
     //used to listen for the press of the escape key and checks if any other menu is open
     void Update()
     {
@@ -26,6 +28,8 @@ public class PauseMenu : MonoBehaviour
     //goes back to the game
     public void Resume(){
         pauseMenu.SetActive(false);
+        mainPauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPause = false;
         Cursor.lockState = CursorLockMode.Locked;
