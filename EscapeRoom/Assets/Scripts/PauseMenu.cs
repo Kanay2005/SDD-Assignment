@@ -13,10 +13,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject TextInput;
     public GameObject optionsMenu;
     public GameObject mainPauseMenu;
+    public GameObject HintMenu;
     //used to listen for the press of the escape key and checks if any other menu is open
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !NumberPad1.activeSelf && !NumberPad2.activeSelf && !TextInput.activeSelf){
+        if(Input.GetKeyDown(KeyCode.Escape) && !NumberPad1.activeSelf && !NumberPad2.activeSelf && !TextInput.activeSelf && !HintMenu.activeSelf){
             if(GameIsPause){
                 Resume();
             }

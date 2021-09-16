@@ -15,13 +15,15 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-    public 
+    
 
     //gets the input for the movement and moves the playes accordingly
     //also looks for the press of the left and the right mouse button and calls the function for the iteraction of items
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        int layerMask = 1 << 7;
+        layerMask = ~layerMask;
 
         if(isGrounded && velocity.y < 0){
             velocity.y = -2f;
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 10)){
+            if(Physics.Raycast(ray, out hit, 10, layerMask)){
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if(interactable != null){
                     try{
@@ -56,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 10)){
+            if(Physics.Raycast(ray, out hit, 10, layerMask)){
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
                 if(interactable != null){
                     try{

@@ -25,6 +25,14 @@ public class Inventory : MonoBehaviour
     public GameObject ButtonEight;
     public GameObject ButtonNine;
     bool buttonDone;
+    public Transform lockedText;
+    public GameObject renderCanvas;
+    public GameObject closedLockerDoor;
+    public GameObject openLockerDoor;
+    bool staplerPlaced = false;
+    bool MugPlaced = false;
+    bool BowtiePlaced = false;
+    public GameObject Hint;
     
     //sets up the hotbar to be empty
     private void Start() {
@@ -51,6 +59,10 @@ public class Inventory : MonoBehaviour
         if(buttonDone == false && ButtonOne.GetComponent<Renderer>().material.color == Color.black && ButtonTwo.GetComponent<Renderer>().material.color == Color.black && ButtonThree.GetComponent<Renderer>().material.color == Color.black && ButtonFour.GetComponent<Renderer>().material.color == Color.white && ButtonFive.GetComponent<Renderer>().material.color == Color.white && ButtonSix.GetComponent<Renderer>().material.color == Color.black && ButtonSeven.GetComponent<Renderer>().material.color == Color.white && ButtonEight.GetComponent<Renderer>().material.color == Color.white && ButtonNine.GetComponent<Renderer>().material.color == Color.black){
             Destroy(ButtonTwo);
             buttonDone = true;
+        }
+        if(staplerPlaced && MugPlaced && BowtiePlaced){
+            closedLockerDoor.SetActive(false);
+            openLockerDoor.SetActive(true);
         }
     }
 
@@ -85,25 +97,22 @@ public class Inventory : MonoBehaviour
             items[equippedSlot] = empty;
             refreshHotbar();
             transform.GetChild(0).gameObject.SetActive(true);
+            staplerPlaced = true;
             return false;
         }
         if(item.name == "PressurePlate2" && items[equippedSlot].name == "Mug"){
             items[equippedSlot] = empty;
             refreshHotbar();
             transform.GetChild(0).gameObject.SetActive(true);
+            MugPlaced = true;
             return false;
         }
         if(item.name == "PressurePlate3" && items[equippedSlot].name == "BowTie"){
             items[equippedSlot] = empty;
             refreshHotbar();
             transform.GetChild(0).gameObject.SetActive(true);
+            BowtiePlaced = true;
             return false;
-        }
-        if(item.name == "Door" && items[equippedSlot].name == "Key"){
-            items[equippedSlot] = empty;
-            refreshHotbar();
-            openDoor.SetActive(true);
-            return true;
         }
         if(item.name == "NumberPad1"){
             NumberPad1.SetActive(true);
@@ -195,7 +204,38 @@ public class Inventory : MonoBehaviour
                 ButtonNine.GetComponent<Renderer>().material.color = Color.white;
             }
         }
-
+        if(item.name=="Cupboard"){
+            if(items[equippedSlot].name == "Key"){
+                items[equippedSlot] = empty;
+                openDoor.SetActive(true);
+                refreshHotbar();
+                return(true);
+            }
+            else{
+                Transform tempLockedText = Instantiate(lockedText);
+                tempLockedText.transform.SetParent(renderCanvas.transform, false);
+            }
+        }
+        
+        if(item.name == "UnlockedDrawer"){
+            return(true);
+        }
+        if(item.name == "LockedDrawer"){
+            if(items[equippedSlot].name == "Key"){
+                items[equippedSlot] = empty;
+                refreshHotbar();
+                return(true);
+            }
+            else{
+                Transform tempLockedText = Instantiate(lockedText);
+                tempLockedText.transform.SetParent(renderCanvas.transform, false);
+            }
+        }
+        if(item.name == "Paper"){
+            Hint.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+        }
         return false;
     }
 

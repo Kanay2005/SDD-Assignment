@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a10c520b4fccc54792fbbef897817bd, type: 3}
-  m_Name: BowTie
+  m_Name: Paper
   m_EditorClassIdentifier: 
-  name: BowTie
-  icon: {fileID: 21300000, guid: 192240f3439033742935680d8d8a22da, type: 3}
+  name: Paper
+  icon: {fileID: 0}

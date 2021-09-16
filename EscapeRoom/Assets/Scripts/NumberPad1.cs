@@ -7,6 +7,8 @@ public class NumberPad1 : MonoBehaviour
 {
     //the different subroutines are used to input different numbers by the press of different buttons on the number pad
     public TextMeshProUGUI outputText;
+    public GameObject closedDoor;
+    public GameObject openDoor;
     string text;
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -66,6 +68,8 @@ public class NumberPad1 : MonoBehaviour
             outputText.color = Color.green;
             outputText.characterSpacing = 0;
             outputText.fontSize = 100;
+            closedDoor.SetActive(false);
+            openDoor.SetActive(true);
         }
         else{
             outputText.text = "WRONG!";
